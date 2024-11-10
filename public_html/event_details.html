@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Details - Getix</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="Getix Logo" style="width: 150px;">
+        <h1>Getix Event Details</h1>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="imprint.html">Imprint</a>
+        <div class="dropdown">
+            <a href="javascript:void(0)">Events</a>
+            <div class="dropdown-content">
+                <a href="search.html?category=concerts">Concerts</a>
+                <a href="search.html?category=sports">Sports</a>
+                <a href="search.html?category=theater">Theater</a>
+            </div>
+        </div>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Event Details Section -->
+    <div class="container event-details">
+        <h1 id="event-title"></h1>
+        <p><strong>Date:</strong> <span id="event-date"></span></p>
+        <p><strong>Location:</strong> <span id="event-location"></span></p> <!-- Added location field -->
+        <p><strong>Category:</strong> <span id="event-category"></span></p>
+        <p id="event-description"></p>
+        <img id="event-image" src="" alt="Event Image" style="width: 200px; height: auto;">
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Getix - <a href="imprint.html">Imprint</a></p>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
