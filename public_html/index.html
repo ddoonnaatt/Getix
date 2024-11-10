@@ -31,33 +31,164 @@
     </div>
 
     <div class="container">
+
+        <!-- Search Section -->
         <section>
-            <h2>Featured Events</h2>
-            <div class="cards">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Concert">
-                    <div class="card-content">
-                        <h3>Concert Night</h3>
-                        <p>Join the biggest concert of the year with top performers from all around the world.</p>
-                    </div>
+            <h2>Search for Events</h2>
+            <form id="search-form" class="modern-search-form" onsubmit="performSearch(event)">
+                <div class="search-container">
+                    <input type="text" id="query" name="query" placeholder="Search for an event..." autocomplete="off">
+                    <button type="submit"><i class="fas fa-search"></i> Search</button>
                 </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Sports Event">
-                    <div class="card-content">
-                        <h3>Championship Finals</h3>
-                        <p>Watch the finals of the biggest sports event with your favorite teams competing for the title.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200" alt="Theater Play">
-                    <div class="card-content">
-                        <h3>Theater Extravaganza</h3>
-                        <p>Experience an unforgettable night of drama and theatrical performances.</p>
-                    </div>
-                </div>
-            </div>
+                <select id="category" name="category" class="search-select">
+                    <option value="all">All Categories</option>
+                    <option value="concerts">Concerts</option>
+                    <option value="sports">Sports</option>
+                    <option value="theater">Theater</option>
+                </select>
+            </form>
         </section>
 
+        <!-- Search Results Section -->
+        <section id="search-results-section" style="display: none;">
+            <h2>Results</h2>
+            <ul id="results-list"></ul>
+            <p id="no-results-message" style="display: none;">No results found. Please try another search.</p>
+        </section>
+
+<!-- Featured Events Section -->
+<section>
+    <h2>Featured Events</h2>
+    <div class="cards">
+        <!-- Eminem Concert -->
+        <div class="card" onclick="openEventDetails(1)">
+            <img src="img/eminem.png" alt="Eminem Concert">
+            <div class="card-content">
+                <h3>Eminem Concert</h3>
+                <p>Experience Eminem live in concert, performing his biggest hits.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> July 15, 2025</p>
+                <p><strong>Location:</strong> Madison Square Garden, New York, USA</p>
+                <p><strong>Description:</strong> Eminem brings an electrifying performance featuring his top hits, an event not to be missed!</p>
+            </div>
+        </div>
+
+        <!-- Champions League Final -->
+        <div class="card" onclick="openEventDetails(2)">
+            <img src="img/champions_league.png" alt="Champions League Final">
+            <div class="card-content">
+                <h3>Champions League Final</h3>
+                <p>Watch the best teams in Europe compete for the title.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> May 28, 2025</p>
+                <p><strong>Location:</strong> Allianz Arena, Munich, Germany</p>
+                <p><strong>Description:</strong> The Champions League Final promises intense action as Europe’s best teams face off for the ultimate prize.</p>
+            </div>
+        </div>
+
+        <!-- National Basketball Finals -->
+        <div class="card" onclick="openEventDetails(3)">
+            <img src="img/basketball_finals.png" alt="National Basketball Finals">
+            <div class="card-content">
+                <h3>National Basketball Finals</h3>
+                <p>Cheer on your favorite teams at the National Basketball Finals.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> June 20, 2025</p>
+                <p><strong>Location:</strong> Staples Center, Los Angeles, USA</p>
+                <p><strong>Description:</strong> Watch top teams compete for the national title in an exciting finale of the basketball season.</p>
+            </div>
+        </div>
+
+        <!-- NFL Match: Patriots vs Eagles -->
+        <div class="card" onclick="openEventDetails(4)">
+            <img src="img/nfl_match.png" alt="NFL Match: Patriots vs Eagles">
+            <div class="card-content">
+                <h3>NFL Match: Patriots vs Eagles</h3>
+                <p>Catch the thrilling action as the New England Patriots face the Philadelphia Eagles.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> September 12, 2025</p>
+                <p><strong>Location:</strong> Gillette Stadium, Foxborough, USA</p>
+                <p><strong>Description:</strong> An intense NFL showdown between the New England Patriots and Philadelphia Eagles. Get ready for an action-packed game!</p>
+            </div>
+        </div>
+
+        <!-- Tennis Match: Rafael Nadal vs Roger Federer -->
+        <div class="card" onclick="openEventDetails(5)">
+            <img src="img/tennis_match.png" alt="Tennis Match: Rafael Nadal vs Roger Federer">
+            <div class="card-content">
+                <h3>Tennis Match: Rafael Nadal vs Roger Federer</h3>
+                <p>Witness an intense tennis match between Rafael Nadal and Roger Federer.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> August 10, 2025</p>
+                <p><strong>Location:</strong> Arthur Ashe Stadium, New York, USA</p>
+                <p><strong>Description:</strong> Rafael Nadal faces off against Roger Federer in a highly anticipated tennis match. Don’t miss the thrilling competition!</p>
+            </div>
+        </div>
+
+        <!-- La Liga Match: Real Madrid vs Barcelona -->
+        <div class="card" onclick="openEventDetails(6)">
+            <img src="img/real_madrid_vs_barcelona.png" alt="La Liga Match: Real Madrid vs Barcelona">
+            <div class="card-content">
+                <h3>La Liga Match: Real Madrid vs Barcelona</h3>
+                <p>The legendary El Clasico between Real Madrid and Barcelona.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> April 3, 2025</p>
+                <p><strong>Location:</strong> Santiago Bernabeu Stadium, Madrid, Spain</p>
+                <p><strong>Description:</strong> Witness the iconic rivalry as Real Madrid faces Barcelona in the exciting El Clasico.</p>
+            </div>
+        </div>
+
+        <!-- Europe Tech Summit 2025 -->
+        <div class="card" onclick="openEventDetails(7)">
+            <img src="img/tech_summit.png" alt="Europe Tech Summit 2025">
+            <div class="card-content">
+                <h3>Europe Tech Summit 2025</h3>
+                <p>Join the brightest minds in technology at the Europe Tech Summit.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> November 18-20, 2025</p>
+                <p><strong>Location:</strong> Messe Berlin, Berlin, Germany</p>
+                <p><strong>Description:</strong> Discover the latest in AI, cybersecurity, and more at this premier tech event in Berlin.</p>
+            </div>
+        </div>
+
+        <!-- Snoop Dogg Concert -->
+        <div class="card" onclick="openEventDetails(8)">
+            <img src="img/snoop_dogg.png" alt="Snoop Dogg Concert">
+            <div class="card-content">
+                <h3>Snoop Dogg Concert</h3>
+                <p>Enjoy an unforgettable evening with Snoop Dogg live in concert.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> October 14, 2025</p>
+                <p><strong>Location:</strong> The O2 Arena, London, UK</p>
+                <p><strong>Description:</strong> West Coast icon Snoop Dogg brings his classic hits to fans, a must-see for hip-hop enthusiasts.</p>
+            </div>
+        </div>
+
+        <!-- New Year's Eve Gala at Times Square -->
+        <div class="card" onclick="openEventDetails(9)">
+            <img src="img/times_square_new_year.png" alt="New Year's Eve Gala at Times Square">
+            <div class="card-content">
+                <h3>New Year's Eve Gala at Times Square</h3>
+                <p>Ring in the New Year at the iconic Times Square celebration.</p>
+            </div>
+            <div class="card-expanded-content">
+                <p><strong>Date:</strong> December 31, 2025</p>
+                <p><strong>Location:</strong> Times Square, New York City, USA</p>
+                <p><strong>Description:</strong> Celebrate New Year’s Eve at Times Square with live music, performances, and the famous Ball Drop.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Why Choose Us Section -->
         <section>
             <h2>Why Choose Us?</h2>
             <div class="why-choose-us">
@@ -84,4 +215,7 @@
         <p>&copy; 2024 Getix - <a href="imprint.html">Imprint</a></p>
     </footer>
 
+    <script src="script.js" defer></script>
+
 </body>
+</html>
