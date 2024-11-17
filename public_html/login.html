@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Getix</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <img src="img/logo.png" alt="Getix Logo" style="width: 150px;">
+        <h1>Admin Login</h1>
+    </header>
+
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="imprint.html">Imprint</a>
+        <div class="dropdown">
+            <a href="javascript:void(0)">Events</a>
+            <div class="dropdown-content">
+                <a href="#">Concerts</a>
+                <a href="#">Sports</a>
+                <a href="#">Theater</a>
+            </div>
+        </div>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="container">
+        <section>
+            <form action="authenticate.php" method="POST" class="contact-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Getix - <a href="imprint.html">Imprint</a></p>
+    </footer>
+</body>
+</html>
