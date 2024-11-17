@@ -27,12 +27,15 @@
     </div>
 
     <div class="container">
-        <section>
-            <form action="authenticate.php" method="POST" class="contact-form">
+        <section class="login-section">
+            <h2>Login</h2>
+            <form action="/authenticate" method="POST" class="contact-form">
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
                 <button type="submit">Login</button>
             </form>
         </section>
