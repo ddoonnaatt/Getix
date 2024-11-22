@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 
 const HomePage = () => {
   const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -20,6 +22,10 @@ const HomePage = () => {
     fetchEvents();
   }, []);
 
+  const handleCardClick = (eventId) => {
+    navigate(`/event/${eventId}`);
+  };
+
   return (
     <div>
       <Header />
@@ -32,7 +38,11 @@ const HomePage = () => {
               <p>No events...</p>
             ) : (
               events.map((event) => (
-                <div key={event.Id} className="card">
+                <div 
+                  key={event.Id} 
+                  className="card" 
+                  onClick={() => handleCardClick(event.EventID)}
+                >
                   <div className="card-content">
                     <h3>{event.Title}</h3>
                     <p>{event.Description}</p>
