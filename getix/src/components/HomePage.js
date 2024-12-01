@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Header from '../components/Header';
+import EventAutocomplete from '../components/EventAutocomplete'; // Import the Autocomplete component
 
 const HomePage = () => {
   const [events, setEvents] = useState([]);
@@ -22,8 +23,8 @@ const HomePage = () => {
     fetchEvents();
   }, []);
 
-  const handleCardClick = (eventId) => {
-    navigate(`/event/${eventId}`);
+  const handleCardClick = (event) => {
+    navigate(`/event/${event.EventID}`);
   };
 
   return (
@@ -32,6 +33,11 @@ const HomePage = () => {
       <Navbar />
       <div className="container">
         <section>
+          <h2>Search Events</h2>
+          <EventAutocomplete onSelect={handleCardClick} />
+        </section>
+        
+        <section>
           <h2>Featured Events</h2>
           <div className="cards">
             {events.length === 0 ? (
@@ -39,7 +45,7 @@ const HomePage = () => {
             ) : (
               events.map((event) => (
                 <div 
-                  key={event.Id} 
+                  key={event.EventID} 
                   className="card" 
                   onClick={() => handleCardClick(event.EventID)}
                 >
