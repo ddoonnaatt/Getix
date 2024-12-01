@@ -1,6 +1,24 @@
-const Event = require('../models/event'); // Import the Event model
+const Event = require('../models/event');
+const { Op } = require('sequelize');
 
-// Create a new event
+const searchEvents = async (req, res) => {
+  try {
+    const { query } = req.query;
+    const events = await Event.findAll({
+      where: {
+        Title: {
+          [Op.like]: `%${query}%`,
+        },
+      },
+      limit: 10,
+    });
+    res.json(events);
+  } catch (error) {
+    console.error('Error searching events:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 const createEvent = async (req, res) => {
   try {
     const { Title, Description, StartDateTime, EndDateTime, Location, EventType } = req.body;
@@ -86,6 +104,7 @@ const deleteEvent = async (req, res) => {
 };
 
 module.exports = {
+  searchEvents,
   createEvent,
   getAllEvents,
   getEventById,
